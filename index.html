@@ -3,190 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stüdyo Ferit - Profesyonel Fotoğraf Stüdyosu</title>
-  <meta name="description" content="Akyazının'nın en iyi fotoğraf stüdyosu. Düğün, nişan, kına, bebek, aile çekimleri ve daha fazlası için Stüdyo Ferit!"/>
-  
+  <title>Fotoferit | Anılarınızı Zamansız Karelere Dönüştürüyoruz</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
       line-height: 1.6;
-      color: #333;
-      background: #f9f9f9;
     }
-    header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&q=80') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 120px 20px 80px;
+    .hero {
       position: relative;
+      height: 100vh;
+      min-height: 700px;
+      background: url('dükkan fotografı 1.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
     }
-    header h1 {
-      font-size: 3.8rem;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    header .subtitle {
-      font-size: 1.5rem;
-      opacity: 0.9;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.45); /* Hafif karartma için */
+      z-index: 1;
     }
     .hero-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      margin: -100px auto 60px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      padding: 40px;
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
     }
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
     }
-    .hero-text h2 {
-      color: #c41e3b; /* kırmızı ton */
-      margin-bottom: 20px;
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .dukkan-foto {
-      flex: 0 0 380px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-    .dukkan-foto img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    section {
-      padding: 80px 0;
-      text-align: center;
-    }
-    h2 {
-      font-size: 2.6rem;
-      margin-bottom: 30px;
-      color: #222;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-    .card h3 {
-      color: #c41e3b;
-      margin-bottom: 15px;
-    }
-    .contact {
-      background: #111;
-      color: white;
-      padding: 100px 20px;
-    }
-    .contact a {
-      color: #ffcc00;
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #111;
+      padding: 16px 40px;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
     }
-    .contact a:hover {
-      text-decoration: underline;
+    .cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
     }
-    footer {
-      background: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 30px 0;
-      font-size: 0.9rem;
+
+    /* WhatsApp Floating Button - Uzun Kavisli & Çarpıcı */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      z-index: 9999;
+      text-decoration: none;
     }
+    .wa-inner {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 60px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+      transition: all 0.4s ease;
+      white-space: nowrap;
+    }
+    .wa-inner i {
+      font-size: 2.2rem;
+      margin-right: 15px;
+    }
+    .whatsapp-float:hover .wa-inner {
+      transform: scale(1.12) translateY(-6px);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.65);
+    }
+
     @media (max-width: 768px) {
-      header h1 { font-size: 2.8rem; }
-      .hero-content { flex-direction: column; text-align: center; }
-      .dukkan-foto { max-width: 100%; }
+      h1 { font-size: 3.5rem; }
+      .hero p { font-size: 1.2rem; }
+      .wa-inner { padding: 14px 28px; font-size: 1rem; }
+      .wa-inner i { font-size: 2rem; margin-right: 12px; }
+      .whatsapp-float { bottom: 30px; right: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>Stüdyo Ferit</h1>
-      <p class="subtitle">Anılarınızı Sonsuzlaştırıyoruz</p>
-    </div>
-  </header>
-
-  <div class="container">
+  <!-- Hero Bölüm -->
+  <section class="hero">
     <div class="hero-content">
-      <div class="hero-text">
-        <h2>Hoş Geldiniz!</h2>
-        <p>Doğal ışıkta, samimi anlarda ve içten duygularda uzmanlaşıyoruz; gülüşleriniz, bakışlarınız, küçük dokunuşlarınız… Hepsi bizim için en değerli hikaye.
-Düğünlerinizden nişanlarınıza, bebek fotoğraflarından aile portrelerine, aşkınızın en güzel anlarını hissettiren, yapaylıktan uzak çekimler yapıyoruz.
-Sakarya ve çevresinde, sizin mekanlarınızda ya da en sevdiğiniz doğa köşelerinde yanınızda oluyoruz.
-Her anı en gerçek ve en güzel haliyle ölümsüzleştirmek istiyorsanız, doğru yerdesiniz – hadi birlikte o özel hikayeyi kadrajımıza alalım! 📸.</p>
-         </div>
-        <p>Düğün, nişan, kına, bebek, aile, mezuniyet, pasaport ve her türlü stüdyo çekimleriniz için doğru adres!</p>
-      </div>
-      
-      <div class="fotoferit">
-        <img src="1.png" alt="Stüdyo Ferit - Akyazı Merkez">
-      </div>
-    </div>
-  </div>
-
-  <section id="hizmetler">
-    <div class="container">
-      <h2>Hizmetlerimiz</h2>
-      <div class="services">
-        <div class="card">
-          <h3>Düğün & Nişan Çekimleri</h3>
-          <p>En özel gününüzü en güzel şekilde ölümsüzleştirelim. Hem stüdyo hem dışarı çekim seçenekleri.</p>
-        </div>
-        <div class="card">
-          <h3>Bebek & Aile Fotoğrafları</h3>
-          <p>Minik prens/prensesleriniz ve aileniz için sıcak, doğal ve eğlenceli çekimler.</p>
-        </div>
-        <div class="card">
-          <h3>Kına & Sünnet Çekimleri</h3>
-          <p>Renkli ve coşkulu anlarınızı profesyonelce kayıt altına alıyoruz.</p>
-        </div>
-        <div class="card">
-          <h3>Pasaport & Kimlik Fotoğrafları</h3>
-          <p>Hızlı, kaliteli ve biyometrik ölçülerde çekim randelu veya randevusuz gelebilirsiniz.</p>
-        </div>
-      </div>
+      <h1>Fotoferit</h1>
+      <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Anılarınızı Zamansız Karelere Dönüştürüyoruz</h2>
+      <p>Doğal ışıkta, samimi anlarda ve içten duygularda uzmanlaşıyoruz. Gülüşleriniz, bakışlarınız, küçük dokunuşlarınız… Hepsi bizim için en değerli hikaye. Sakarya ve çevresinde, sizin mekanlarınızda ya da en sevdiğiniz doğa köşelerinde yanınızdayız. Düğün, nişan, bebek, aile ve özel günlerinizi en güzel haliyle ölümsüzleştiriyoruz.</p>
+      <a href="#iletisim" class="cta-btn">Hadi Konuşalım</a>
     </div>
   </section>
 
-  <section id="iletisim" class="contact">
-    <div class="container">
-      <h2>Bize Ulaşın</h2>
-      <p><strong>Adres:</strong> Karaosman, Bankalar Cd. No:1, 54100 Adapazarı/Sakarya</p>
-      <p><strong>Telefon:</strong> <a href="tel:+902644181963">(0264) 418 19 63</a></p>
-      <p><strong>WhatsApp:</strong> Aynı numaradan mesaj atabilirsiniz!</p>
-      <br>
-      <p>Bizi arayın veya gelin, hayallerinizdeki fotoğrafları birlikte çekelim! 📸</p>
+  <!-- WhatsApp Butonu (Tıkla → Direkt WhatsApp) -->
+  <a href="https://wa.me/905xxxxxxxxx?text=Merhaba%20Fotoferit%2C%20fotoğraf%20çekimi%20hakkında%20bilgi%20almak%20istiyorum!" 
+     class="whatsapp-float" target="_blank">
+    <div class="wa-inner">
+      <i class="fab fa-whatsapp"></i> WhatsApp ile Hemen Yaz
     </div>
-  </section>
+  </a>
 
-  <footer>
-    <p>&copy; 2026 Stüdyo Ferit -</p>
-  </footer>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 </body>
 </html>
