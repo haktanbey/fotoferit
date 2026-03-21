@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stüdyo Ferit - Profesyonel Fotoğraf Stüdyosu</title>
+  <meta name="description" content="Adapazarı'nın en iyi fotoğraf stüdyosu. Düğün, nişan, kına, bebek, aile çekimleri ve daha fazlası için Stüdyo Ferit!"/>
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3.8rem;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    header .subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      margin: -100px auto 60px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      padding: 40px;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .hero-text h2 {
+      color: #c41e3b; /* kırmızı ton */
+      margin-bottom: 20px;
+    }
+    .dukkan-foto {
+      flex: 0 0 380px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .dukkan-foto img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+      color: #222;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card h3 {
+      color: #c41e3b;
+      margin-bottom: 15px;
+    }
+    .contact {
+      background: #111;
+      color: white;
+      padding: 100px 20px;
+    }
+    .contact a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.8rem; }
+      .hero-content { flex-direction: column; text-align: center; }
+      .dukkan-foto { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Stüdyo Ferit</h1>
+      <p class="subtitle">Anılarınızı Sonsuzlaştırıyoruz</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Hoş Geldiniz!</h2>
+        <p>Adapazarı'nın kalbinde, profesyonel ekipmanlarımız ve deneyimli ekibimizle sizin için en güzel kareleri yakalıyoruz.</p>
+        <p>Düğün, nişan, kına, bebek, aile, mezuniyet, pasaport ve her türlü stüdyo çekimleriniz için doğru adres!</p>
+      </div>
+      
+      <div class="dukkan-foto">
+        <img src="dukkan-foto.jpg" alt="Stüdyo Ferit Dış Cephe - Adapazarı">
+      </div>
+    </div>
+  </div>
+
+  <section id="hizmetler">
+    <div class="container">
+      <h2>Hizmetlerimiz</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Düğün & Nişan Çekimleri</h3>
+          <p>En özel gününüzü en güzel şekilde ölümsüzleştirelim. Hem stüdyo hem dışarı çekim seçenekleri.</p>
+        </div>
+        <div class="card">
+          <h3>Bebek & Aile Fotoğrafları</h3>
+          <p>Minik prens/prensesleriniz ve aileniz için sıcak, doğal ve eğlenceli çekimler.</p>
+        </div>
+        <div class="card">
+          <h3>Kına & Sünnet Çekimleri</h3>
+          <p>Renkli ve coşkulu anlarınızı profesyonelce kayıt altına alıyoruz.</p>
+        </div>
+        <div class="card">
+          <h3>Pasaport & Kimlik Fotoğrafları</h3>
+          <p>Hızlı, kaliteli ve biyometrik ölçülerde çekim – randevusuz gelebilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim" class="contact">
+    <div class="container">
+      <h2>Bize Ulaşın</h2>
+      <p><strong>Adres:</strong> Karaosman, Bankalar Cd. No:1, 54100 Adapazarı/Sakarya</p>
+      <p><strong>Telefon:</strong> <a href="tel:+902644181963">(0264) 418 19 63</a></p>
+      <p><strong>WhatsApp:</strong> Aynı numaradan mesaj atabilirsiniz!</p>
+      <br>
+      <p>Bizi arayın veya gelin, hayallerinizdeki fotoğrafları birlikte çekelim! 📸</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Stüdyo Ferit - Tüm hakları saklıdır. ❤️ Adapazarı</p>
+  </footer>
+
+</body>
+</html>
