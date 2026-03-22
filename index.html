@@ -3,130 +3,345 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fotoferit | Anılarınızı Zamansız Karelere Dönüştürüyoruz</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Uzaylı Parti • Giriş / Kayıt</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
-      line-height: 1.6;
+    :root {
+      --bg: #0d001a;
+      --neon: #00ffea;
+      --neon2: #ff00aa;
+      --danger: #ff3366;
     }
-    .hero {
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: white;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0,255,234,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,0,170,0.08) 0%, transparent 50%);
+    }
+
+    /* Yıldızlar & gezegenler */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: transparent;
+    }
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 4s infinite alternate;
+    }
+    @keyframes twinkle { 0%,100% { opacity:0.3; } 50% { opacity:1; } }
+
+    .planet {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, white 5%, transparent 60%);
+      box-shadow: 0 0 60px var(--neon);
+      animation: rotatePlanet 120s linear infinite;
+    }
+    @keyframes rotatePlanet { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .container {
       position: relative;
-      height: 100vh;
-      min-height: 700px;
-      background: url('dükkan fotografı 1.png') no-repeat center center/cover;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      color: white;
+      padding: 20px;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.45); /* Hafif karartma için */
-      z-index: 1;
-    }
-    .hero-content {
+
+    .form-box {
+      background: rgba(20, 0, 40, 0.6);
+      backdrop-filter: blur(12px);
+      border: 2px solid var(--neon);
+      border-radius: 24px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 0 80px rgba(0,255,234,0.4),
+                  inset 0 0 30px rgba(0,255,234,0.15);
       position: relative;
-      z-index: 2;
-      max-width: 900px;
-      padding: 0 20px;
+      overflow: hidden;
+      transition: all 0.4s;
     }
+
+    .form-box.shake {
+      animation: shake 0.5s;
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-12px); }
+      50% { transform: translateX(12px); }
+      75% { transform: translateX(-8px); }
+    }
+
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 2px;
-    }
-    .hero p {
-      font-size: 1.4rem;
-      margin-bottom: 2.5rem;
-      max-width: 750px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: #fff;
-      color: #111;
-      padding: 16px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-    .cta-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--neon), var(--neon2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(0,255,234,0.7);
     }
 
-    /* WhatsApp Floating Button - Uzun Kavisli & Çarpıcı */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      z-index: 9999;
-      text-decoration: none;
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
     }
-    .wa-inner {
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #25D366, #128C7E);
+
+    .input-group {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      border: 2px solid rgba(0,255,234,0.3);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
       color: white;
-      padding: 16px 36px;
-      border-radius: 60px;
-      font-size: 1.15rem;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-      transition: all 0.4s ease;
-      white-space: nowrap;
-    }
-    .wa-inner i {
-      font-size: 2.2rem;
-      margin-right: 15px;
-    }
-    .whatsapp-float:hover .wa-inner {
-      transform: scale(1.12) translateY(-6px);
-      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.65);
+      font-size: 1.1rem;
+      transition: all 0.3s;
     }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 3.5rem; }
-      .hero p { font-size: 1.2rem; }
-      .wa-inner { padding: 14px 28px; font-size: 1rem; }
-      .wa-inner i { font-size: 2rem; margin-right: 12px; }
-      .whatsapp-float { bottom: 30px; right: 20px; }
+    input:focus {
+      outline: none;
+      border-color: var(--neon);
+      box-shadow: 0 0 20px rgba(0,255,234,0.5);
+    }
+
+    .icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: var(--neon);
+      pointer-events: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, var(--neon), #00c8ff);
+      color: black;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.4s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 10px 30px rgba(0,255,234,0.4);
+    }
+
+    button:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 20px 50px rgba(0,255,234,0.6);
+    }
+
+    .toggle {
+      text-align: center;
+      margin-top: 24px;
+      color: #aaa;
+    }
+
+    .toggle a {
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .toggle a:hover { text-decoration: underline; }
+
+    /* Konfeti patlaması */
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .particle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(120vh) rotate(720deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Bölüm -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Fotoferit</h1>
-      <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Anılarınızı Zamansız Karelere Dönüştürüyoruz</h2>
-      <p>Doğal ışıkta, samimi anlarda ve içten duygularda uzmanlaşıyoruz. Gülüşleriniz, bakışlarınız, küçük dokunuşlarınız… Hepsi bizim için en değerli hikaye. Sakarya ve çevresinde, sizin mekanlarınızda ya da en sevdiğiniz doğa köşelerinde yanınızdayız. Düğün, nişan, bebek, aile ve özel günlerinizi en güzel haliyle ölümsüzleştiriyoruz.</p>
-      <a href="#iletisim" class="cta-btn">Hadi Konuşalım</a>
+<div class="stars" id="stars"></div>
+
+<div class="container">
+  <div class="form-box" id="formBox">
+
+    <h1 id="formTitle">UZAYLI PARTİ</h1>
+    <p class="subtitle" id="subtitle">Galaksiye hoş geldin kaçkın!</p>
+
+    <form id="authForm">
+
+      <div class="input-group">
+        <span class="icon">👽</span>
+        <input type="text" id="username" placeholder="Uzaylı Kod Adın" required autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input type="password" id="password" placeholder="Gizli Frekans" required>
+      </div>
+
+      <button type="submit" id="submitBtn">IŞINLAN →</button>
+    </form>
+
+    <div class="toggle">
+      <span id="toggleText">Zaten uzaylı mısın?</span>
+      <a href="#" id="toggleLink">Diğer tarafa ışınlan</a>
     </div>
-  </section>
 
-  <!-- WhatsApp Butonu (Tıkla → Direkt WhatsApp) -->
-  <a href="https://wa.me/905xxxxxxxxx?text=Merhaba%20Fotoferit%2C%20fotoğraf%20çekimi%20hakkında%20bilgi%20almak%20istiyorum!" 
-     class="whatsapp-float" target="_blank">
-    <div class="wa-inner">
-      <i class="fab fa-whatsapp"></i> WhatsApp ile Hemen Yaz
-    </div>
-  </a>
+  </div>
+</div>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<div class="confetti" id="confetti"></div>
 
+<script>
+// ★★★ Yıldızlar & Gezegenler ★★★
+const starsContainer = document.getElementById('stars');
+for(let i = 0; i < 180; i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.width = star.style.height = Math.random()*3 + 'px';
+  star.style.left = Math.random()*100 + '%';
+  star.style.top = Math.random()*100 + '%';
+  star.style.animationDelay = Math.random()*4 + 's';
+  starsContainer.appendChild(star);
+}
+
+const planets = [
+  {size:120, left:'10%', top:'15%', color:'var(--neon)'},
+  {size:80,  left:'75%', top:'65%', color:'var(--neon2)'},
+];
+planets.forEach(p => {
+  const planet = document.createElement('div');
+  planet.className = 'planet';
+  planet.style.width = planet.style.height = p.size + 'px';
+  planet.style.left = p.left;
+  planet.style.top = p.top;
+  planet.style.background = `radial-gradient(circle at 30% 30%, white 5%, ${p.color} 40%, transparent 70%)`;
+  planet.style.boxShadow = `0 0 ${p.size/2}px ${p.color}`;
+  starsContainer.appendChild(planet);
+});
+
+// ★★★ Form Mantığı ★★★
+const form = document.getElementById('authForm');
+const title = document.getElementById('formTitle');
+const subtitle = document.getElementById('subtitle');
+const toggleText = document.getElementById('toggleText');
+const toggleLink = document.getElementById('toggleLink');
+const submitBtn = document.getElementById('submitBtn');
+const formBox = document.getElementById('formBox');
+
+let isLogin = true;
+
+toggleLink.addEventListener('click', e => {
+  e.preventDefault();
+  isLogin = !isLogin;
+
+  if(isLogin){
+    title.textContent = "UZAYLI PARTİ";
+    subtitle.textContent = "Galaksiye hoş geldin kaçkın!";
+    submitBtn.textContent = "IŞINLAN →";
+    toggleText.textContent = "Zaten uzaylı mısın?";
+    toggleLink.textContent = "Diğer tarafa ışınlan";
+  } else {
+    title.textContent = "YENİ UZAYLI KAYIT";
+    subtitle.textContent = "Kimliğini sisteme yükle!";
+    submitBtn.textContent = "KAYIT OL → TELEPATİK";
+    toggleText.textContent = "Daha önce ışınlandın mı?";
+    toggleLink.textContent = "Giriş yapayım o zaman";
+  }
+});
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const user = document.getElementById('username').value.trim();
+  const pass = document.getElementById('password').value;
+
+  if(!user || pass.length < 3){
+    formBox.classList.add('shake');
+    setTimeout(()=>formBox.classList.remove('shake'), 600);
+    subtitle.textContent = "Frekansta hata var! Tekrar dene 👾";
+    setTimeout(()=> subtitle.textContent = isLogin ? "Galaksiye hoş geldin kaçkın!" : "Kimliğini sisteme yükle!", 2000);
+    return;
+  }
+
+  // Sahte başarılı giriş (eğlence için)
+  if(isLogin){
+    subtitle.textContent = `Hoş geldin ${user.toUpperCase()}! Parti başlasın! 🪐`;
+    launchConfetti();
+    setTimeout(()=> alert(`Işınlanma başarılı!\nHoş geldin ${user}!\n\n(gerçek hayatta backend lazım tabii 😏)`), 1800);
+  } else {
+    subtitle.textContent = `${user} sisteme kaydedildi! Artık resmi uzay kaçkınısın! 🚀`;
+    launchConfetti(120);
+    setTimeout(()=> {
+      isLogin = true;
+      toggleLink.click();
+      subtitle.textContent = "Şimdi giriş yap bakalım yeni uzaylı!";
+    }, 2800);
+  }
+});
+
+// Şifre alanına komik emoji efekti
+document.getElementById('password').addEventListener('input', e => {
+  const val = e.target.value;
+  if(val.length > 0){
+    e.target.setAttribute('type','text');
+    e.target.value = '👾'.repeat(Math.min(val.length, 8)) + (val.length>8 ? '...' : '');
+    setTimeout(()=> {
+      e.target.setAttribute('type','password');
+      e.target.value = val;
+    }, 400);
+  }
+});
+
+// Konfeti patlatma fonksiyonu
+function launchConfetti(count = 80) {
+  const confetti = document.getElementById('confetti');
+  const colors = ['#00ffea','#ff00aa','#ffff00','#ff3366','#00ff88'];
+
+  for(let i = 0; i < count; i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random()*100 + 'vw';
+    p.style.background = colors[Math.floor(Math.random()*colors.length)];
+    p.style.animationDuration = (Math.random()*2 + 2) + 's';
+    p.style.animationDelay = Math.random()*0.5 + 's';
+    confetti.appendChild(p);
+
+    setTimeout(()=> p.remove(), 5000);
+  }
+}
+</script>
 </body>
 </html>
